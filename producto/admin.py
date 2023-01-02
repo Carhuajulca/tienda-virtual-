@@ -26,10 +26,16 @@ class ProductoAdmin(admin.ModelAdmin):
 
     # me abre una nueva ventana y puedo aprovechar todas las configuraciones
     raw_id_fields = ['categoria']
-
+ 
     # Agregando formulario
     form = ProductoForm
 
+    # Configurando el panel de control
+    fieldsets = (
+        ('Datos basicos', {'fields': ('categoria', 'marca_codigo', 'nombre')}),
+        ('Precios', {'fields': (('precio', 'precio_oferta'), ('porcentaje_oferta'),)})
+        
+    )
  
 
 
