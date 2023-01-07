@@ -27,7 +27,7 @@ class ProductoAdmin(admin.ModelAdmin):
     # me abre una nueva ventana y puedo aprovechar todas las configuraciones
     raw_id_fields = ['categoria']
  
-    # Agregando formulario
+    # Agregando formulario forms.py
     form = ProductoForm
 
     # Configurando el panel de control

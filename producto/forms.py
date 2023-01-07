@@ -1,6 +1,7 @@
 from django import forms
 from producto.models import Producto
 
+# Classe que se importara en admin.py
 class ProductoForm(forms.ModelForm):
     
     class Meta:

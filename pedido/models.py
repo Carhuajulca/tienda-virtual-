@@ -8,12 +8,12 @@ class Cliente(models.Model):
     nombres = models.CharField("Nombres", max_length=50)
     apellidos = models.CharField("Apellidos", max_length=70)
     email =models.EmailField("Email")
-    dni = models.CharField("DNI", max_length=8, null=True, blank=True)
+    dni = models.CharField("DNI", max_length=8, null=True, blank=True, unique=True)
     direccion = models.CharField("Direccion", max_length=50, null=True, blank=True)
     celular = models.CharField("Celular", max_length=20, null=True)
 
     def __str__(self):
-        return self.nombre + " " + self.apellidos
+        return self.nombres + " " + self.apellidos
 
     class Meta:
         verbose_name = "Cliente"
