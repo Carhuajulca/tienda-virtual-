@@ -1,4 +1,5 @@
 from django.db import models
+from autoslug import AutoSlugField
 
 # Create your models here.
 class Marca(models.Model):
@@ -41,7 +42,7 @@ class Producto(models.Model):
     nombre = models.CharField("Nombre" , max_length=50)
     precio = models.DecimalField("Precio", max_digits=9, decimal_places=2)
     estado = models.CharField("Estado", max_length=1)
-    slug = models.CharField("Slug", max_length=50)
+    slug = AutoSlugField(populate_from='nombre', unique_with=['nombre'], always_update=True)
     precio_oferta = models.DecimalField("Precio oferta", max_digits=9, decimal_places=2, null=True, blank=True)
     porcentaje_oferta = models.DecimalField("Porcentaje descuento", max_digits=9, decimal_places=2, null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.RESTRICT)
